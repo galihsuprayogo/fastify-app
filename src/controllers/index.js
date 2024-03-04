@@ -1,4 +1,2 @@
-import rootController from './rootController.js'
-import userController from './userController.js'
-
-export { rootController, userController }
+export * from './handlers/index.js'
+export * from './schemas/index.js'

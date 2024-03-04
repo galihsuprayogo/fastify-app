@@ -1,10 +1,9 @@
 import 'dotenv/config'
-import { fastifyDB } from './configs/index.js'
-import rootRoute from './routes/rootRoute.js'
-import userRoute from './routes/userRoute.js'
 
-fastifyDB.fastifyDB.register(rootRoute)
-fastifyDB.fastifyDB.register(userRoute)
+import { fastifyDB } from './configs/index.js'
+import { userRoutes } from './routes/index.js'
+
+fastifyDB.fastifyDB.register(userRoutes)
 
 // Run the server!
 try {
