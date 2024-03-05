@@ -23,6 +23,7 @@
     "linebreak-style": "off",
     "no-unused-vars": "off",
     "no-else-return": "off",
+    "no-param-reassign": "off",
     "prefer-arrow-callback": "off"
   }
 }
