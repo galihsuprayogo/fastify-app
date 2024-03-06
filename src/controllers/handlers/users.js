@@ -10,8 +10,8 @@ export const registerUserHandler = (req, reply) => {
   const encryptedPassword = hashSync(password, Number(process.env.SALT_ROUNDS))
 
   fastifyDB.fastifyDB.mysql.query(
-    'INSERT INTO USERS (username, email, password) VALUES (?, ?, ?)',
-    [username, email, encryptedPassword],
+    'INSERT INTO USERS (username, email, password, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?)',
+    [username, email, encryptedPassword, new Date(), new Date()],
     function onResult(err, result) {
       reply.send(
         err || {

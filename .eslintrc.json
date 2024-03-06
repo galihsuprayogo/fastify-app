@@ -16,19 +16,21 @@
   "rules": {
     "arrow-body-style": "off",
     "dot-notation": "off",
+    "global-require": "off",
     "import/newline-after-import": ["off", { "count": 0 }],
     "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
     "import/extensions": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-dynamic-require": "off",
     "import/prefer-default-export": "off",
     "linebreak-style": "off",
     "no-unused-vars": "off",
     "no-else-return": "off",
+    "no-underscore-dangle": "off",
     "no-param-reassign": "off",
-    "prefer-arrow-callback": "off",
-    // ext
     "no-path-concat": "off",
-    "prefer-template": "off",
-    "import/no-dynamic-require": "off",
-    "global-require": "off"
+    "prefer-arrow-callback": "off",
+    "prefer-template": "off"
   }
 }

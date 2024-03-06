@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node src/index",
-    "dev": "nodemon src/index"
+    "dev": "nodemon src/index",
+    "migrate:up": "npx sequelize-cli db:migrate",
+    "migrate:down": "npx sequelize-cli db:migrate:undo"
   },
   "author": "",
   "license": "ISC",
