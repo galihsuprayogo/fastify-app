@@ -24,6 +24,11 @@
     "no-unused-vars": "off",
     "no-else-return": "off",
     "no-param-reassign": "off",
-    "prefer-arrow-callback": "off"
+    "prefer-arrow-callback": "off",
+    // ext
+    "no-path-concat": "off",
+    "prefer-template": "off",
+    "import/no-dynamic-require": "off",
+    "global-require": "off"
   }
 }

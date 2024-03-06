@@ -1,3 +1,3 @@
-import fastifyDB from './db/index.js'
+import fastifyDB from './db.js'
 
 export { fastifyDB }
