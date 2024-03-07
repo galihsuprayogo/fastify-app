@@ -12,7 +12,7 @@ export const userRoutes = (fastify, options, done) => {
   fastify.post('/user/login', { handler: loginUserHandler })
 
   // middleware with jwt
-  fastify.get('/user/all', { preHandler: verifyToken, handler: getAllUsers })
+  fastify.get('/user/all', { preHandler: [verifyToken], handler: getAllUsers })
 
   done()
 }

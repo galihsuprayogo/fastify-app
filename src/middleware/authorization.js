@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 
-const { verify } = jwt
+const { verify, decode } = jwt
 
-export const verifyToken = (req, reply) => {
+export const verifyToken = async (req, reply) => {
   const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(' ')[1]
 
@@ -15,6 +15,6 @@ export const verifyToken = (req, reply) => {
       reply.send({ message: 'Invalid token' })
     }
 
-    reply.send({ message: 'Berhasil login' })
+    req.username = decode
   })
 }

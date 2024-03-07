@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/index",
-    "dev": "nodemon src/index",
-    "migrate:up": "npx sequelize-cli db:migrate",
-    "migrate:down": "npx sequelize-cli db:migrate:undo"
+    "dev": "nodemon src/index"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +15,7 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.1",
+    "fastify-plugin": "^4.5.1",
     "jsonwebtoken": "^9.0.2",
     "sequelize": "^6.37.1"
   },
