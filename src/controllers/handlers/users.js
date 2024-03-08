@@ -10,7 +10,7 @@ const { hashSync, compareSync } = bcrypt
 const { fastifyPlugin } = fp
 
 export const registerUserHandler = fastifyPlugin(async (req, reply) => {
-  const { username, email, password } = req.body
+  const { fullname, username, email, password } = req.body
   const encryptedPassword = hashSync(password, Number(process.env.SALT_ROUNDS))
 
   const currentDate = new Date()
@@ -18,7 +18,7 @@ export const registerUserHandler = fastifyPlugin(async (req, reply) => {
 
   try {
     await db.sequelize.query(
-      `INSERT INTO USERS (username, email, password, createdAt, updatedAt) VALUES ('${username}', '${email}', '${encryptedPassword}', '${convertDate}', '${convertDate}')`,
+      `INSERT INTO USERS (fullname, username, email, password, createdAt, updatedAt) VALUES ('${fullname}', '${username}', '${email}', '${encryptedPassword}', '${convertDate}', '${convertDate}')`,
       {
         type: QueryTypes.INSERT,
       }

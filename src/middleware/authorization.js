@@ -14,7 +14,7 @@ export const verifyToken = async (req, reply) => {
     if (err) {
       reply.send({ message: 'Invalid token' })
     }
-
+    // true
     decode(token)
   })
 }
