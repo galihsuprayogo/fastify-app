@@ -1,13 +1,15 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import sq from 'sequelize'
+import fp from 'fastify-plugin'
 import db from '../../models/index.js'
 
 const { sign } = jwt
 const { QueryTypes } = sq
 const { hashSync, compareSync } = bcrypt
+const { fastifyPlugin } = fp
 
-export const registerUserHandler = async (req, reply) => {
+export const registerUserHandler = fastifyPlugin(async (req, reply) => {
   const { username, email, password } = req.body
   const encryptedPassword = hashSync(password, Number(process.env.SALT_ROUNDS))
 
@@ -25,7 +27,7 @@ export const registerUserHandler = async (req, reply) => {
   } catch (error) {
     reply.send(error)
   }
-}
+})
 
 export const loginUserHandler = async (req, reply) => {
   const { username, password } = req.body
