@@ -7,12 +7,12 @@ export const verifyToken = async (req, reply) => {
   const token = authHeader && authHeader.split(' ')[1]
 
   if (!token) {
-    reply.send({ message: 'No token provided' })
+    reply.status(401).send({ message: 'No token provided' })
   }
 
   verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
     if (err) {
-      reply.send({ message: 'Invalid token' })
+      reply.status(401).send({ message: 'Invalid token' })
     }
     // true
     decode(token)

@@ -47,10 +47,10 @@ export const loginUserHandler = async (req, reply) => {
           token,
         })
       } else {
-        reply.send({ message: 'Invalid password' })
+        reply.status(400).send({ message: 'Invalid password' })
       }
     } else {
-      reply.send({ message: 'User not found' })
+      reply.status(400).send({ message: 'User not found' })
     }
   } catch (error) {
     reply.send(error)
