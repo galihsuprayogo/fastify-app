@@ -3,22 +3,20 @@ import fs, { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import process from 'process'
+import configs from '../config/config.js'
 const { Sequelize } = sq
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const env = process.env.NODE_ENV || 'development'
 // import conf from '../config/config.json' assert { type: 'json' }
-const confUrl = new URL('../config/config.json', import.meta.url)
-const conf = JSON.parse(readFileSync(confUrl))
-const config = conf[env]
+// const confUrl = new URL('../config/config.js', import.meta.url)
+// const conf = JSON.parse(readFileSync(confUrl))
+
+// const config = configs[env]
+const config = configs[env]
 const db = {}
 
-let sequelize
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config)
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config)
-}
+const sequelize = new Sequelize(config)
 
 fs.readdirSync(__dirname)
   .filter((file) => {

@@ -1,8 +1,8 @@
 import 'dotenv/config'
 
+import path from 'path'
 import Fastify from 'fastify'
 import fastifyStatic from '@fastify/static'
-import path from 'path'
 import { fileURLToPath } from 'url'
 import { userRoutes } from './routes/index.js'
 import db from './models/index.js'
@@ -30,7 +30,7 @@ fastify.get('/', function root(req, reply) {
 // Run the server!
 try {
   db.sequelize.sync()
-  await fastify.listen({ port: 3002 })
+  await fastify.listen({ port: 3002, host: '127.0.0.1' })
 } catch (err) {
   fastify.log.error(err)
   process.exit(1)
